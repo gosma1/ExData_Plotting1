@@ -18,15 +18,19 @@ data_plot$Global_reactive_power <- as.numeric(data_plot$Global_reactive_power)
 # Construct plot
 par(mfrow=c(2,2))
 
+# Fist Row, First column
 plot(data_plot$Time, as.numeric(data_plot$Global_active_power), type = "l", xlab="", ylab="Global Active Power (kilowatts)",  main="")
 
+# Fist Row, Second column
 plot(data_plot$Time, as.numeric(data_plot$Voltage), type = "l", xlab="datetime", ylab="Voltage",  main="")
 
+# Second Row, First column
 plot(data_plot$Time, as.numeric(data_plot$Sub_metering_1), type = "l", xlab="", ylab="Energy sub metering",  main="")
 lines(data_plot$Time, as.numeric(data_plot$Sub_metering_2), type = "l", xlab="", ylab="Energy sub metering",  main="", col="red")
 lines(data_plot$Time, as.numeric(data_plot$Sub_metering_3), type = "l", xlab="", ylab="Energy sub metering",  main="", col="blue")
 legend("topright", lwd = 1, col=c("black", "blue","red"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),  cex = 0.7, y.intersp = 0.1, bty = "n", inset = c(0.02, -0.08))
 
+# Second Row, Second column
 with(data_plot, plot(Time, Global_reactive_power, type = "l", xlab="datetime",  main=""))
 
 # Copy to file
